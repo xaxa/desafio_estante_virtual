@@ -31,10 +31,16 @@ class CompeticaoSerializer(serializers.ModelSerializer):
 
     def get_resultados(self, obj):
         
-        resultado = Resultado.objects.all()
-        serializer = ResultadoSerializer(resultado, many=True)
+        if obj.criterio_vencedor == "maior":
+           resultado = Resultado.objects.raw('SELECT *, MAX(valor) as valor FROM jogos_olimpicos_resultado WHERE competicao_id = '+str(obj.pk)+' GROUP BY atleta_id ORDER BY valor')
+
+        else: 
+            resultado = Resultado.objects.raw('SELECT *, MIN(valor) as valor FROM jogos_olimpicos_resultado WHERE competicao_id = '+str(obj.pk)+' GROUP BY atleta_id ORDER BY valor DESC')       
+
+        serializer = ResultadoSimplesSerializer(resultado, many=True)
         return serializer.data
 
     class Meta:
         model = Competicao
         fields = ('id','nome','quantidade_chances','finalizada','criterio_vencedor','resultados')
+
