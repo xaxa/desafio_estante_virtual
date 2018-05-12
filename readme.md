@@ -5,7 +5,6 @@ Projeto está localizado em: https://github.com/xaxa/desafio_estante_virtual.git
 
 Utilizado:
 - Python 3.5.2
-- pip 10.0.1
 - Django 2.0.5
 - djangorestframework 3.8.2
 
@@ -21,7 +20,7 @@ Atletas
 
 **Visualização de atleta**
 
-**GET** /atleta/<id>/
+**GET** /atleta/[id]/
 
 **Cadastro de Atleta**
 
@@ -31,25 +30,27 @@ atributos:
 - nome CharField[150] (obrigatório)
 
 exemplo content: 
+
     {
         "nome": "Carlos"
     }
 
 **Edição de Atleta**
 
-**PATCH** /atleta/<id>/
+**PATCH** /atleta/[id]/
 
 atributos:
 - nome CharField[150] (obrigatório)
 
 exemplo content: 
+
     {
         "nome": "Carlos Alves"
     }
 
 **Deletar Atleta**
 
-**DELETE** /atleta/<id>/
+**DELETE** /atleta/[id]/
 
 ----------
 Competição
@@ -61,7 +62,7 @@ Competição
 
 **Visualização de competição com resultado**
 
-**GET** /competicao/<id>/
+**GET** /competicao/[id]/
 
 **Cadastro de competição**
 
@@ -86,7 +87,7 @@ exemplo content:
 
 **Edição de competição**
 
-**PATCH** /competicao/<id>/
+**PATCH** /competicao/[id]/
 
 atributos:
 - nome CharField[150] (obrigatório)
@@ -107,11 +108,11 @@ exemplo content:
 
 **Finalizar competição**
 
-**PATCH** /competicao/<id>/finalizar/
+**PATCH** /competicao/[id]/finalizar/
 
 **Deletar competição**
 
-**DELETE** /competicao/<id>/
+**DELETE** /competicao/[id]/
 
 ---------
 Resultado
@@ -123,13 +124,14 @@ Resultado
 
 atributos:
 
-- competicao <id de competicao> (obrigatório)
-- atleta  <id de atleta> (obrigatório)
+- competicao [id de competicao] (obrigatório)
+- atleta  [id de atleta] (obrigatório)
 - valor DecimalField[max_digits=6, decimal_places=3] (obrigatório)
 - unidade CharField[1] (obrigatório)
     podendo ser "s" ou "m"
 
 exemplo content:
+
     {
         "competicao": 2,
         "atleta": 1,
