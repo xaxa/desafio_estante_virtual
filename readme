@@ -1,0 +1,10 @@
+
+
+Projeto está localizado em: https://github.com/xaxa/desafio_estante_virtual.git
+
+
+Utilizado:
+	Python 3.5.2
+	pip 10.0.1
+	Django 2.0.5
+	djangorestframework 3.8.2
