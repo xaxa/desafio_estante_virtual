@@ -9,7 +9,7 @@ router.register(r'competicao', views.CompeticaoViewSet)
 router.register(r'resultado', views.ResultadoViewSet)
 
 finalizar_competicao = views.CompeticaoViewSet.as_view({
-    'get': 'finalizarCompeticao'
+    'patch': 'finalizarCompeticao'
 })
 
 # The API URLs are now determined automatically by the router.
