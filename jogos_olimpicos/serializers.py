@@ -28,3 +28,13 @@ class ResultadoSimplesSerializer(serializers.ModelSerializer):
 class CompeticaoSerializer(serializers.ModelSerializer):
 
     resultados = serializers.SerializerMethodField()
+
+    def get_resultados(self, obj):
+        
+        resultado = Resultado.objects.all()
+        serializer = ResultadoSerializer(resultado, many=True)
+        return serializer.data
+
+    class Meta:
+        model = Competicao
+        fields = ('id','nome','quantidade_chances','finalizada','criterio_vencedor','resultados')
