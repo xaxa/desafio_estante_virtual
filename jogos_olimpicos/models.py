@@ -1,5 +1,12 @@
 from django.db import models
-
+UNIDADES = (
+		('s','Segundos'),
+		('m','Metros'),
+	)
+CRITERIO_VENCEDOR = (
+        ('maior','Maior valor'),
+        ('menor','Menor valor'),
+    )
 
 class Atleta(models.Model):
     criacao = models.DateTimeField(auto_now_add=True)
@@ -14,6 +21,7 @@ class Competicao(models.Model):
     nome = models.CharField(max_length=150, blank=False) 
     quantidade_chances = models.SmallIntegerField( blank=False)
     finalizada = models.BooleanField(default=False)
+    criterio_vencedor = models.CharField(choices=CRITERIO_VENCEDOR,max_length=5,blank=False)
 
     def __str__(self):
         return self.nome
