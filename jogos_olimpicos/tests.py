@@ -6,7 +6,7 @@ class CompeticaoTest(TestCase):
     def setUp(self):
         Competicao.objects.create(nome="Dardo semifinal",quantidade_chances=1,finalizada=True,criterio_vencedor="maior")
         Competicao.objects.create(nome="100m classificatoria",quantidade_chances=1,finalizada=False,criterio_vencedor="maior")
-
+        
     def teste_finalizado(self):
         with self.assertRaisesMessage(APIException, "Competição finalizada"):
             competicao_dardo = Competicao.objects.get(nome="Dardo semifinal")
