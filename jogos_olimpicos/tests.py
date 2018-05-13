@@ -50,7 +50,6 @@ class AtletaViewTest(TestCase):
         self.assertEqual(response.status_code, 400) #se falhar, retorna erro 400
 
 class CompeticaoViewTest(TestCase):
- 
     def setUp(self):
         self.client = Client()
  
